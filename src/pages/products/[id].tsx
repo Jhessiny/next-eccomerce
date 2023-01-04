@@ -10,7 +10,6 @@ export async function getStaticPaths() {
       fallback: "blocking",
     };
   }
-
   const queryClient = new QueryClient();
 
   const productsData = await queryClient.fetchQuery(["products"], () =>
@@ -27,9 +26,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(ctx: any) {
   const queryClient = new QueryClient();
+
   const { id } = ctx.params;
 
-  await queryClient.fetchQuery([`product-${id}`], () =>
+  await queryClient.prefetchQuery([`product-${id}`], () =>
     loadProductItemService.execute(id)
   );
 

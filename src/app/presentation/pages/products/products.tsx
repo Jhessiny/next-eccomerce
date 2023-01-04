@@ -5,7 +5,6 @@ import { useLoadProducts } from "../../hooks/queries/use-products";
 
 export const Products = () => {
   const { isLoading, data } = useLoadProducts();
-  console.log(data);
 
   if (isLoading) return <p>loading...</p>;
   return (
