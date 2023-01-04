@@ -1,7 +1,43 @@
-import React from "react";
+import { dehydrate, QueryClient } from "react-query";
+import { loadProductItemService } from "../../app/application/services/load-product-item";
+import { loadProductsService } from "../../app/application/services/load-products";
+import { ProductPage } from "../../app/presentation/pages/product-page/product-page";
 
-const Product1 = () => {
-  return <div>Product1</div>;
-};
+export async function getStaticPaths() {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
 
-export default Product1;
+  const queryClient = new QueryClient();
+
+  const productsData = await queryClient.fetchQuery(["products"], () =>
+    loadProductsService.execute()
+  );
+  const paths = productsData.products?.map((item) => ({
+    params: { id: item.id.toString() },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(ctx: any) {
+  const queryClient = new QueryClient();
+  const { id } = ctx.params;
+
+  await queryClient.fetchQuery([`product-${id}`], () =>
+    loadProductItemService.execute(id)
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
+
+export default ProductPage;
