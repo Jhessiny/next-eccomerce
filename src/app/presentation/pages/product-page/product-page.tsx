@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { formatBRLPrice } from "../../../helpers/format-currency";
 import { Layout } from "../../components/layout/layout";
+import { RatingStars } from "../../components/rating-stars/rating-stars";
 import { useLoadProductItem } from "../../hooks/queries/use-products";
 
 export const ProductPage = () => {
@@ -43,6 +44,7 @@ export const ProductPage = () => {
                 -
               </button>
             </div>
+            <RatingStars rating={data.rating} />
           </div>
         </div>
       )}

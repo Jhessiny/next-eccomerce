@@ -7,4 +7,5 @@ export type ProductModel = {
   thumbnail: string;
   images: string[];
   price: number;
+  rating: number;
 };
