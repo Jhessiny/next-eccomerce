@@ -36,11 +36,11 @@ export const ProductPage = () => {
             <p className="mt-2">{formatBRLPrice(data?.price)}</p>
 
             <div className="border-2 w-24 flex mt-4 ">
-              <button className="bg-cyan-800 text-white flex justify-center align-middle w-8 py-2">
+              <button className="bg-primary-main text-white flex justify-center align-middle w-8 py-2">
                 +
               </button>
               <span className="w-8 py-2">0</span>
-              <button className="bg-cyan-800 text-white flex justify-center align-middle w-8 py-2">
+              <button className="bg-primary-main text-white flex justify-center align-middle w-8 py-2">
                 -
               </button>
             </div>
