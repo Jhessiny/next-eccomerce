@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ReactQueryProvider>
       <Hydrate state={pageProps.dehydratedState}>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Hydrate>
     </ReactQueryProvider>
   );
