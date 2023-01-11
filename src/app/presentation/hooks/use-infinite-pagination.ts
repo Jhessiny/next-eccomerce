@@ -11,7 +11,7 @@ type Props = {
 export const useProductsInfinitePagination = ({ filter, page }: Props) => {
   const isFirstRender = useMount();
   const [products, setProducts] = useState<ProductModel[]>([]);
-  const { isLoading, data, refetch } = useLoadProducts(
+  const { isLoading, isFetching, data, refetch } = useLoadProducts(
     { page, filter },
     { enabled: !isFirstRender }
   );
@@ -20,15 +20,18 @@ export const useProductsInfinitePagination = ({ filter, page }: Props) => {
 
   useEffect(() => {
     if (hasMore) refetch();
-  }, [filter, page]);
+  }, [page]);
 
   useEffect(() => {
     setProducts([]);
+    refetch();
   }, [filter]);
 
   useEffect(() => {
     if (data?.products) setProducts((prev) => [...prev, ...data.products]);
   }, [data?.products]);
 
-  return { products, isLoading, hasMore };
+  const showSpinner = isFetching && !products.length;
+
+  return { products, isLoading: showSpinner, hasMore };
 };

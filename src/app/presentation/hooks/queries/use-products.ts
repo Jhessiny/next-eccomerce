@@ -4,8 +4,8 @@ import { loadProductItemService } from "../../../application/services/load-produ
 import { loadProductsService } from "../../../application/services/load-products";
 
 export const useLoadProducts = (
-  params: LoadProducts.Params,
-  options: {
+  params?: LoadProducts.Params,
+  options?: {
     enabled: boolean;
   }
 ) => {
