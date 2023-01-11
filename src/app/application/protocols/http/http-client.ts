@@ -10,7 +10,10 @@ type HttpResponseBody<R = any> = {
 
 export interface HttpClient<R = any> {
   token?: string;
-  request: (params: HttpRequest) => Promise<HttpResponse<R>>;
+  request: (
+    params: HttpRequest,
+    signal?: AbortSignal
+  ) => Promise<HttpResponse<R>>;
 }
 
 export enum HttpStatusCode {
@@ -28,6 +31,7 @@ export type HttpRequest = {
   method: HttpMethod;
   body?: any;
   headers?: any;
+  signal?: AbortSignal;
 };
 
 export type HttpMethod = "post" | "get" | "put" | "delete" | "patch";

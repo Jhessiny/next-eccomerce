@@ -8,8 +8,11 @@ import {
 const axiosInstance = axios.create({ baseURL: "https://dummyjson.com" });
 
 export class AxiosHttpClient implements HttpClient {
-  async request(params: HttpRequest): Promise<HttpResponse> {
-    const res = await axiosInstance.request({ ...params });
+  async request(
+    params: HttpRequest,
+    signal?: AbortSignal
+  ): Promise<HttpResponse> {
+    const res = await axiosInstance.request({ ...params, signal });
     return res.data;
   }
 }

@@ -7,8 +7,13 @@ export class LoadProducts {
     private readonly httpClient: HttpClient<LoadProducts.Model>
   ) {}
 
-  async execute(params?: unknown) {
-    const res = await this.httpClient.request({ method: "get", url: this.url });
+  async execute(params?: LoadProducts.Params) {
+    const limit = 16;
+    const skip = params?.page ? (params?.page - 1) * limit : 0;
+    const res = await this.httpClient.request({
+      method: "get",
+      url: `${this.url}?limit=${limit}&skip=${skip}&category=${params?.filter}`,
+    });
     return res;
   }
 }
@@ -16,5 +21,11 @@ export class LoadProducts {
 export namespace LoadProducts {
   export type Model = {
     products: Array<ProductModel>;
+    total: number;
+  };
+
+  export type Params = {
+    page: number;
+    filter?: string;
   };
 }

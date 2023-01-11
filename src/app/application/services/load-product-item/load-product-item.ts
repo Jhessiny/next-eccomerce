@@ -7,10 +7,11 @@ export class LoadProductItem {
     private readonly httpClient: HttpClient<LoadProductItem.Model>
   ) {}
 
-  async execute({ id }: { id: string }) {
+  async execute({ id }: { id: string }, signal?: AbortSignal) {
     const httpResponse = await this.httpClient.request({
       method: "get",
       url: `${this.url}/${id}`,
+      signal,
     });
 
     return httpResponse;
