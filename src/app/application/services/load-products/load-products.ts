@@ -8,7 +8,7 @@ export class LoadProducts {
   ) {}
 
   async execute(params?: LoadProducts.Params) {
-    const limit = 16;
+    const limit = params?.limit ?? 16;
     const skip = params?.page ? (params?.page - 1) * limit : 0;
     const categoryUrl =
       params?.filter && `${this.url}/category/${params?.filter}`;
@@ -29,5 +29,6 @@ export namespace LoadProducts {
   export type Params = {
     page: number;
     filter?: string;
+    limit?: number;
   };
 }
