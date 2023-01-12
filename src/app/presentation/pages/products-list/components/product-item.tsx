@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { ProductModel } from "../../../../domain/models";
 import { formatBRLPrice } from "../../../../helpers/format-currency";
+import { Button } from "../../../components";
 
 type Props = ProductModel;
 
@@ -24,9 +25,9 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
         />
         <p className="text-2xl font-bold">{title}</p>
         <p>{formatBRLPrice(price)}</p>
-        <button className="bg-primary-dark p-2 mt-4 text-white font-bold w-full rounded-sm">
+        <Button className="mt-3" action={() => null}>
           add to cart
-        </button>
+        </Button>
       </Link>
     );
   }
