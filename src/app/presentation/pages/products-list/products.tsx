@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { BsArrowUpShort } from "react-icons/bs";
 import { Spinner, Layout } from "../../components";
 import { useProductsInfinitePagination } from "../../hooks/use-infinite-pagination";
 import { CategoryFilter } from "./components/category-filter";
@@ -6,6 +7,7 @@ import { ProductItem } from "./components/product-item";
 
 export const Products = () => {
   const [page, setPage] = useState(1);
+  const [showTopButton, setShowTopButton] = useState(false);
   const [filter, setFilter] = useState<string | undefined>("");
   const { products, isLoading, hasMore } = useProductsInfinitePagination({
     page,
@@ -25,6 +27,20 @@ export const Products = () => {
     },
     [isLoading, hasMore]
   );
+
+  useEffect(() => {
+    window.addEventListener("scroll", () =>
+      setShowTopButton(window.scrollY > 200)
+    );
+
+    return () =>
+      window.removeEventListener("scroll", () => setShowTopButton(true));
+  }, []);
+
+  const goToTop = () => {
+    window.scrollTo({ top: 0 });
+    setShowTopButton(false);
+  };
 
   return (
     <Layout>
@@ -46,6 +62,15 @@ export const Products = () => {
           );
         })}
       </div>
+
+      {showTopButton && (
+        <button
+          onClick={() => goToTop()}
+          className="fixed right-2 bottom-4 rounded-full py-4 px-6 w-24 bg-primary-dark text-white font-bold flex justify-between items-center"
+        >
+          <BsArrowUpShort size={24} /> top
+        </button>
+      )}
     </Layout>
   );
 };
