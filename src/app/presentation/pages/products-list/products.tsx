@@ -54,7 +54,7 @@ export const Products = () => {
       {showTopButton && (
         <Button
           action={() => goToTop()}
-          className="fixed right-2 bottom-4 py-4"
+          className="fixed right-2 bottom-4 py-4 bg-primary-mainAlpha"
         >
           <BsArrowUpShort size={24} /> top
         </Button>
