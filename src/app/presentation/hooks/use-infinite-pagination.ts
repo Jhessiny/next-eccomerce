@@ -1,15 +1,15 @@
 import { ProductModel } from "./../../domain/models/products";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLoadProducts } from "./queries/use-products";
 import { useMount } from "./use-mount";
 
 type Props = {
   filter?: string;
-  page: number;
 };
 
-export const useProductsInfinitePagination = ({ filter, page }: Props) => {
+export const useProductsInfinitePagination = ({ filter }: Props) => {
   const isFirstRender = useMount();
+  const [page, setPage] = useState(1);
   const [products, setProducts] = useState<ProductModel[]>([]);
   const { isLoading, isFetching, data, refetch } = useLoadProducts(
     { page, filter },
@@ -24,6 +24,7 @@ export const useProductsInfinitePagination = ({ filter, page }: Props) => {
 
   useEffect(() => {
     setProducts([]);
+    setPage(1);
     refetch();
   }, [filter]);
 
@@ -31,7 +32,22 @@ export const useProductsInfinitePagination = ({ filter, page }: Props) => {
     if (data?.products) setProducts((prev) => [...prev, ...data.products]);
   }, [data?.products]);
 
-  const showSpinner = isFetching && !products.length;
+  const observer = useRef<IntersectionObserver>();
+  const lastProductRef = useCallback(
+    (node: any) => {
+      if (isLoading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPage((prev) => prev + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [isLoading, hasMore]
+  );
 
-  return { products, isLoading: showSpinner, hasMore };
+  const showSpinner = isFetching;
+
+  return { products, isLoading: showSpinner, lastProductRef };
 };
