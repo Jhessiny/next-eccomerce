@@ -37,6 +37,10 @@ export const Products = () => {
       window.removeEventListener("scroll", () => setShowTopButton(true));
   }, []);
 
+  useEffect(() => {
+    setPage(1);
+  }, [filter]);
+
   const goToTop = () => {
     window.scrollTo({ top: 0 });
     setShowTopButton(false);
