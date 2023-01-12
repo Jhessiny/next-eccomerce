@@ -9,7 +9,7 @@ export const ImagesContainer = ({ images, title }: Props) => {
   const [activeImg, setActiveImg] = useState(0);
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center min-[850px]:w-1/2">
       <div className="bg-gray-100 h-72 flex items-center p-3 justify-center">
         <Image
           src={images[activeImg]}
