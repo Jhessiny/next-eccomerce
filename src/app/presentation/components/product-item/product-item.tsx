@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { ProductModel } from "../../../../domain/models";
-import { formatBRLPrice } from "../../../../helpers/format-currency";
-import { Button } from "../../../components";
+import { ProductModel } from "../../../domain/models";
+import { formatBRLPrice } from "../../../helpers/format-currency";
+import { Button } from "..";
 
 type Props = ProductModel;
 

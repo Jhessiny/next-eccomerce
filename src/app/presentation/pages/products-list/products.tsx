@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
-import { Spinner, Layout } from "../../components";
-import { Button } from "../../components/button/button";
+import { Spinner, Layout, Button, ProductItem } from "../../components";
 import { useProductsInfinitePagination } from "../../hooks/use-infinite-pagination";
 import { CategoryFilter } from "./components/category-filter";
-import { ProductItem } from "./components/product-item";
 
 export const Products = () => {
   const [showTopButton, setShowTopButton] = useState(false);
