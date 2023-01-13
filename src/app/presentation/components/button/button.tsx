@@ -1,9 +1,8 @@
-import clsx from "clsx";
 import React, { PropsWithChildren } from "react";
 
 type Props = PropsWithChildren &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    action: (params?: unknown) => void;
+    action: React.MouseEventHandler<HTMLButtonElement>;
     className?: string;
   };
 
