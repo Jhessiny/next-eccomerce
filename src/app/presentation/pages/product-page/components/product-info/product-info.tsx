@@ -2,17 +2,25 @@ import React from "react";
 import { ProductModel } from "../../../../../domain/models";
 import { formatBRLPrice } from "../../../../../helpers/format-currency";
 import { AddAndRemoveBtns, RatingStars } from "../../../../components";
+import { useCartSelector } from "../../../../hooks";
 import { ImagesContainer } from "../images-container/images-container";
 
 type Props = ProductModel;
 
 export const ProductInfo = ({
+  id,
+  thumbnail,
   images,
   title,
   price,
   description,
   rating,
 }: Props) => {
+  const { increaseItemAmount, reduceItemAmount, getCartItem } =
+    useCartSelector();
+
+  const itemAmount = () => getCartItem(id)?.amount || 0;
+
   return (
     <div className="flex justify-center flex-col align-middle text-center min-[850px]:flex-row">
       <ImagesContainer images={images} title={title} />
@@ -21,7 +29,11 @@ export const ProductInfo = ({
         <p>{description}</p>
         <p className="mt-2">{formatBRLPrice(price)}</p>
 
-        <AddAndRemoveBtns addFn={() => null} value={0} removeFn={() => null} />
+        <AddAndRemoveBtns
+          addFn={() => increaseItemAmount({ id, title, price, thumbnail })}
+          value={itemAmount()}
+          removeFn={() => reduceItemAmount(id)}
+        />
         <div className="mt-4">
           <RatingStars rating={rating} />
         </div>
