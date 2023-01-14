@@ -3,6 +3,12 @@ import { create } from "zustand";
 
 export const useCartStore = create<CartStore>((set) => ({
   cart: [],
+  isCartOpen: false,
+  setIsCartOpen: (open: boolean) =>
+    set((state) => ({
+      ...state,
+      isCartOpen: open,
+    })),
   increaseItemAmount: (product: PartialProductType) =>
     set((state) => ({
       ...state,

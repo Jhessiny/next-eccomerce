@@ -9,6 +9,8 @@ export type CartItem = PartialProductType & { amount: number };
 
 export type CartStore = {
   cart: CartItem[];
+  isCartOpen: boolean;
+  setIsCartOpen: (open: boolean) => void;
   increaseItemAmount: (product: PartialProductType) => void;
   reduceItemAmount: (id: string) => void;
   removeCartItem: (id: string) => void;
