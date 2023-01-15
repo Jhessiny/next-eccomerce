@@ -1,5 +1,5 @@
-export const formatBRLPrice = (price: number) =>
-  new Intl.NumberFormat("pt-BR", {
+export const formatUSDPrice = (price: number) =>
+  new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "BRL",
+    currency: "USD",
   }).format(price);
