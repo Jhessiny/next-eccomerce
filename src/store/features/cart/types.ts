@@ -5,10 +5,10 @@ export type PartialProductType = Pick<
   "id" | "thumbnail" | "price" | "title"
 >;
 
-export type CartItem = PartialProductType & { amount: number };
+export type CartItemModel = PartialProductType & { amount: number };
 
 export type CartStore = {
-  cart: CartItem[];
+  cart: CartItemModel[];
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   increaseItemAmount: (product: PartialProductType) => void;

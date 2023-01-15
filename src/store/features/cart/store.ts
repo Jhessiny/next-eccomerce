@@ -1,4 +1,4 @@
-import { CartItem, CartStore, PartialProductType } from "./types";
+import { CartItemModel, CartStore, PartialProductType } from "./types";
 import { create } from "zustand";
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -26,7 +26,7 @@ export const useCartStore = create<CartStore>((set) => ({
     })),
 }));
 
-const addItemToCart = (product: PartialProductType, cart: CartItem[]) => {
+const addItemToCart = (product: PartialProductType, cart: CartItemModel[]) => {
   const newCart = [...cart];
   const cartItem = newCart.find((item) => item.id === product.id);
   if (cartItem) {
@@ -37,7 +37,7 @@ const addItemToCart = (product: PartialProductType, cart: CartItem[]) => {
   return newCart;
 };
 
-const reduceItemAmount = (id: string, cart: CartItem[]) => {
+const reduceItemAmount = (id: string, cart: CartItemModel[]) => {
   const newCart = [...cart];
   const cartItem = newCart.find((item) => item.id === id)!;
   if (cartItem?.amount > 1) {
@@ -48,5 +48,5 @@ const reduceItemAmount = (id: string, cart: CartItem[]) => {
   return newCart.filter((item) => item.id !== id);
 };
 
-const removeItemFromCart = (id: string, cart: CartItem[]) =>
+const removeItemFromCart = (id: string, cart: CartItemModel[]) =>
   cart.filter((item) => item.id !== id);
