@@ -41,7 +41,7 @@ export const Cart = () => {
           onClick={() => setIsCartOpen(false)}
           className="absolute w-9 h-9 left-[-14px] bg-primary-dark rounded-sm flex justify-center items-center"
         >
-          <BsArrowRight color="#fff" size={20} />
+          <BsArrowRight color="#fff" size={20} aria-label="close cart" />
         </button>
         <div className="overflow-y-scroll h-full">
           <CartItemsList />

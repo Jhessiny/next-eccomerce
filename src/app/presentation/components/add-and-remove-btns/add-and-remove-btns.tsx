@@ -25,6 +25,7 @@ export const AddAndRemoveBtns = ({
       }`}
     >
       <button
+        aria-label="reduce"
         onClick={removeFn}
         className={`${getAddBtnClasses(isDisplayCol)}`}
       >
@@ -34,6 +35,7 @@ export const AddAndRemoveBtns = ({
       <button
         onClick={addFn}
         className={`${getRemoveBtnClasses(isDisplayCol)}`}
+        aria-label="increase"
       >
         +
       </button>
