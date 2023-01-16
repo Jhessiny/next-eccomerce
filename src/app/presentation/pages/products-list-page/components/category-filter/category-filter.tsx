@@ -36,8 +36,13 @@ export const CategoryFilter = memo(({ setFilter }: Props) => {
 
   return (
     <div className="flex justify-center mb-8">
+      <label className="hidden" htmlFor="category" id="category-label">
+        Category
+      </label>
       <Select
         instanceId="category"
+        id="category"
+        aria-labelledby="category-label"
         className="p-3 w-80"
         onChange={(option) => setFilter(option?.value)}
         options={options}
