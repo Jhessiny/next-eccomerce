@@ -2,9 +2,11 @@ Link to deploy https://next-eccomerce-gules.vercel.app/
 
 ## Getting Started
 
-First, run the development server:
+First, install and run the development server:
 
 ```bash
+yarn 
+and
 yarn dev
 ```
 
