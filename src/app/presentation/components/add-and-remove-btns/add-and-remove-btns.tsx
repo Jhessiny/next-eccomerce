@@ -1,22 +1,40 @@
 import React from "react";
+import {
+  getAddBtnClasses,
+  getRemoveBtnClasses,
+  getValueClasses,
+} from "./classes";
 
 type Props = {
   value: number;
   addFn: () => void;
   removeFn: () => void;
+  isDisplayCol?: boolean;
 };
 
-const btnClasses =
-  "bg-primary-main text-white flex justify-center align-middle w-8 py-2";
-
-export const AddAndRemoveBtns = ({ addFn, value, removeFn }: Props) => {
+export const AddAndRemoveBtns = ({
+  addFn,
+  value,
+  removeFn,
+  isDisplayCol,
+}: Props) => {
   return (
-    <div className=" w-24 flex mt-4 ">
-      <button onClick={removeFn} className={`${btnClasses} rounded-r-sm`}>
+    <div
+      className={`w-24 flex ${
+        isDisplayCol ? "flex-col-reverse items-end" : ""
+      }`}
+    >
+      <button
+        onClick={removeFn}
+        className={`${getAddBtnClasses(isDisplayCol)}`}
+      >
         -
       </button>
-      <span className="w-8 border-[1px] py-2">{value}</span>
-      <button onClick={addFn} className={`${btnClasses} rounded-l-sm`}>
+      <span className={getValueClasses(isDisplayCol)}>{value}</span>
+      <button
+        onClick={addFn}
+        className={`${getRemoveBtnClasses(isDisplayCol)}`}
+      >
         +
       </button>
     </div>
