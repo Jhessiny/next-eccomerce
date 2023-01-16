@@ -3,9 +3,17 @@ import { useCartSelector } from "../../hooks";
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import { CartItemsList } from "./components";
+import { useCacheStorage } from "../../hooks/use-cache-storage";
 
 export const Cart = () => {
-  const { isCartOpen, setIsCartOpen } = useCartSelector();
+  const { isCartOpen, setIsCartOpen, startCart } = useCartSelector();
+  const cache = useCacheStorage();
+
+  useEffect(() => {
+    const cacheCartItems = cache.getItem("cart");
+    console.log(CartItemsList);
+    if (cacheCartItems) startCart(JSON.parse(cacheCartItems));
+  }, []);
 
   useEffect(() => {
     if (isCartOpen) {
