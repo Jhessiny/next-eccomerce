@@ -15,6 +15,7 @@ export const ProductPage = () => {
     <>
       <Head>
         <title>Product page</title>
+        <meta name="description" content={data?.title} />
       </Head>
 
       {isLoading && <Spinner />}

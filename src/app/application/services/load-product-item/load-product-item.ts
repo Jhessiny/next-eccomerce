@@ -8,7 +8,7 @@ export class LoadProductItem {
   ) {}
 
   async execute({ id }: { id: string }, signal?: AbortSignal) {
-    if (!id) return new Error("no id");
+    if (!id) return null;
     const httpResponse = await this.httpClient.request({
       method: "get",
       url: `${this.url}/${id}`,

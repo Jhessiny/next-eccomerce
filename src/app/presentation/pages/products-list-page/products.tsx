@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
 import { Spinner, Button } from "../../components";
@@ -29,6 +30,9 @@ export const Products = () => {
 
   return (
     <>
+      <Head>
+        <meta name="description" content="list of all products" />
+      </Head>
       <CategoryFilter setFilter={setFilter} />
 
       <ProductsList products={products} ref={lastProductRef} />
