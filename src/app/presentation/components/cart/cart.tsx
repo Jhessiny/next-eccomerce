@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import { CartItemsList } from "./components";
 import { useCacheStorage } from "../../hooks/use-cache-storage";
+import { Overlay } from "../overlay/overlay";
+import { Portal } from "../portal/portal";
 
 export const Cart = () => {
   const { isCartOpen, setIsCartOpen, startCart } = useCartSelector();
@@ -11,7 +13,6 @@ export const Cart = () => {
 
   useEffect(() => {
     const cacheCartItems = cache.getItem("cart");
-    console.log(CartItemsList);
     if (cacheCartItems) startCart(JSON.parse(cacheCartItems));
   }, []);
 
@@ -24,12 +25,8 @@ export const Cart = () => {
   }, [isCartOpen]);
 
   return (
-    <>
-      <div
-        className={`bg-slate-500 w-[100vw] h-[100vh] fixed right-0 top-0 left-0 bottom-0  opacity-40 ${
-          isCartOpen ? "" : "hidden"
-        }`}
-      ></div>
+    <Portal>
+      {isCartOpen && <Overlay />}
 
       <motion.div
         transition={{
@@ -50,6 +47,6 @@ export const Cart = () => {
           <CartItemsList />
         </div>
       </motion.div>
-    </>
+    </Portal>
   );
 };

@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { CacheContext } from "../../main/providers/cache-provider";
+import { Context } from "../../main/providers/context-provider";
 
 export const useCacheStorage = () => {
-  const cacheStorage = useContext(CacheContext);
+  const { cache } = useContext(Context);
   const getItem = (name: string) => {
-    return cacheStorage.getItem(name);
+    return cache.getItem(name);
   };
 
   const setItem = (name: string, value: string) => {
-    return localStorage.setItem(name, value);
+    return cache.setItem(name, value);
   };
   return { getItem, setItem };
 };

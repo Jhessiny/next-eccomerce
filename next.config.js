@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/data/products/**",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   async redirects() {

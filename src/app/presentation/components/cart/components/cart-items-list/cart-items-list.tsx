@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { formatUSDPrice } from "../../../../../helpers/format-currency";
 import { useCartSelector } from "../../../../hooks";
@@ -6,6 +7,7 @@ import { CartItemComponent } from "../cart-item/cart-item";
 
 export const CartItemsList = () => {
   const { cart: cartItems, getTotalPrice } = useCartSelector();
+  const route = useRouter();
   const isEmpty = !Boolean(cartItems.length);
   const totalCart = formatUSDPrice(getTotalPrice());
 
@@ -26,7 +28,10 @@ export const CartItemsList = () => {
             <p>{totalCart}</p>
           </div>
 
-          <Button className="w-full mt-6" action={() => null}>
+          <Button
+            className="w-full mt-6"
+            action={() => route.push("/checkout")}
+          >
             Checkout
           </Button>
         </>

@@ -2,14 +2,16 @@ import React from "react";
 import { NavItem } from "./components/nav-item/nav-item";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { useCartSelector } from "../../../../hooks";
+import { LoginLogout } from "./components/login-logout/login-logout";
 
 export const Header = () => {
   const { cartAmount, setIsCartOpen } = useCartSelector();
+
   return (
     <nav className="bg-primary-main text-white mb-10 flex justify-end pr-2">
       <ul className="flex justify-end mr-2">
         <NavItem href="/products">Products</NavItem>
-        <NavItem href="/">Profile</NavItem>
+        <LoginLogout />
         <NavItem
           href="/"
           className="relative flex items-center"

@@ -7,7 +7,7 @@ type Props = PropsWithChildren & {
   action?: () => void;
 };
 
-export const NavItem = ({ children, href, className, action }: Props) => {
+export const NavItem = ({ children, href, className = "", action }: Props) => {
   const handleAction = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.nativeEvent.preventDefault();
