@@ -1,4 +1,4 @@
-Link to deploy https://next-eccomerce-gules.vercel.app/
+Link to deploy https://next-eccomerce-gules.vercel.app
 
 ## Getting Started
 
