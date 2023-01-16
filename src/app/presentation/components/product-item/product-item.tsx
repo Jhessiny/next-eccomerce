@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback } from "react";
 import { ProductModel } from "../../../domain/models";
-import { formatBRLPrice } from "../../../helpers/format-currency";
+import { formatUSDPrice } from "../../../helpers/format-currency";
 import { Button } from "..";
 import { useCartSelector } from "../../hooks";
 import { stopPropagation } from "../../helpers";
@@ -47,7 +47,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
           className="object-contain h-52 w-full mb-4"
         />
         <p className="text-2xl font-bold">{title}</p>
-        <p>{formatBRLPrice(price)}</p>
+        <p>{formatUSDPrice(price)}</p>
         {!cartHasItem && (
           <Button className="mt-3" action={handleAddItem}>
             add to cart
