@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductModel } from "../../../../../domain/models";
-import { formatBRLPrice } from "../../../../../helpers/format-currency";
+import { formatUSDPrice } from "../../../../../helpers/format-currency";
 import { AddAndRemoveBtns, RatingStars } from "../../../../components";
 import { useCartSelector } from "../../../../hooks";
 import { ImagesContainer } from "../images-container/images-container";
@@ -27,13 +27,14 @@ export const ProductInfo = ({
       <div className="flex flex-col justify-center items-center p-2 mt-6 min-[850px]:w-1/2 min-[850px]:mt-0 px-20">
         <p className="text-3xl font-bold mb-3 text-center">{title}</p>
         <p>{description}</p>
-        <p className="mt-2">{formatBRLPrice(price)}</p>
-
-        <AddAndRemoveBtns
-          addFn={() => increaseItemAmount({ id, title, price, thumbnail })}
-          value={itemAmount()}
-          removeFn={() => reduceItemAmount(id)}
-        />
+        <p className="mt-2">{formatUSDPrice(price)}</p>
+        <div className="mt-4">
+          <AddAndRemoveBtns
+            addFn={() => increaseItemAmount({ id, title, price, thumbnail })}
+            value={itemAmount()}
+            removeFn={() => reduceItemAmount(id)}
+          />
+        </div>
         <div className="mt-4">
           <RatingStars rating={rating} />
         </div>
