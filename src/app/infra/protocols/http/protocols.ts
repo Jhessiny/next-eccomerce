@@ -1,5 +1,4 @@
 import axios from "axios";
-import superjson from "superjson";
 import {
   HttpClient,
   HttpRequest,
@@ -19,7 +18,7 @@ export class AxiosHttpClient implements HttpClient {
       const res = await axiosInstance.request({ ...params, signal });
       return res.data;
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }
 }
@@ -34,7 +33,7 @@ export class FetchHttpClient implements HttpClient {
       const data = await res.json();
       return data;
     } catch (e) {
-      console.log({ FETCHERROR: e });
+      console.error({ FETCHERROR: e });
     }
   }
 }
