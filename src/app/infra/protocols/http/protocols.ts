@@ -12,7 +12,11 @@ export class AxiosHttpClient implements HttpClient {
     params: HttpRequest,
     signal?: AbortSignal
   ): Promise<HttpResponse> {
-    const res = await axiosInstance.request({ ...params, signal });
-    return res.data;
+    try {
+      const res = await axiosInstance.request({ ...params, signal });
+      return res.data;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
