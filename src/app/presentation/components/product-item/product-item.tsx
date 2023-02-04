@@ -33,15 +33,11 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
     const cartHasItem = Boolean(getCartItem(id));
 
     return (
-      // <Link
-      //   href={`/products/${id}`}
-      //   className="w-full px-2 py-4 bg-white rounded-md shadow-md text-center duration-300 hover:scale-105 flex flex-col justify-between"
-      //   ref={ref}
-      // >
       <Link
         href={`/products/${id}`}
         className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
         ref={ref}
+        prefetch={false}
       >
         <Image
           src={images[0]}
@@ -63,8 +59,6 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
           </Button>
         )}
       </Link>
-
-      // </Link>
     );
   }
 );
