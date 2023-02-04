@@ -7,7 +7,7 @@ export const CheckoutPage = () => {
   return (
     <div>
       <div className="overflow-y-scroll h-full">
-        <CartItemsList />
+        <CartItemsList btn={{ action: () => null, text: "Go to payment" }} />
       </div>
     </div>
   );

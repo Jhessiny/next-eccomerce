@@ -6,10 +6,14 @@ import { CartItemsList } from "./components";
 import { useCacheStorage } from "../../hooks/use-cache-storage";
 import { Overlay } from "../overlay/overlay";
 import { Portal } from "../portal/portal";
+import { useRouter } from "next/router";
 
 export const Cart = () => {
+  const router = useRouter();
   const { isCartOpen, setIsCartOpen, startCart } = useCartSelector();
   const cache = useCacheStorage();
+
+  const navigateToCheckout = () => router.push("/checkout");
 
   useEffect(() => {
     const cacheCartItems = cache.getItem("cart");
@@ -44,7 +48,9 @@ export const Cart = () => {
           <BsArrowRight color="#fff" size={20} aria-label="close cart" />
         </button>
         <div className="overflow-y-scroll h-full">
-          <CartItemsList />
+          <CartItemsList
+            btn={{ action: navigateToCheckout, text: "checkout" }}
+          />
         </div>
       </motion.div>
     </Portal>

@@ -5,9 +5,15 @@ import { useCartSelector } from "../../../../hooks";
 import { Button } from "../../../button/button";
 import { CartItemComponent } from "../cart-item/cart-item";
 
-export const CartItemsList = () => {
+type Props = {
+  btn: {
+    action: React.MouseEventHandler<HTMLButtonElement>;
+    text: string;
+  };
+};
+
+export const CartItemsList = ({ btn }: Props) => {
   const { cart: cartItems, getTotalPrice } = useCartSelector();
-  const route = useRouter();
   const isEmpty = !Boolean(cartItems.length);
   const totalCart = formatUSDPrice(getTotalPrice());
 
@@ -28,11 +34,8 @@ export const CartItemsList = () => {
             <p>{totalCart}</p>
           </div>
 
-          <Button
-            className="w-full mt-6"
-            action={() => route.push("/checkout")}
-          >
-            Checkout
+          <Button className="w-full mt-6" action={btn.action}>
+            {btn.text}
           </Button>
         </>
       )}
