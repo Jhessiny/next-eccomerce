@@ -2,6 +2,7 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
 import { Spinner, Button } from "../../components";
+import { inlineFn } from "../../helpers";
 import { useProductsInfinitePagination } from "../../hooks/use-infinite-pagination";
 import { CategoryFilter, ProductsList } from "./components";
 
@@ -45,7 +46,7 @@ export const Products = () => {
 
       {showTopButton && (
         <Button
-          action={() => goToTop()}
+          action={inlineFn(goToTop)}
           className="fixed right-2 bottom-4 py-4 bg-primary-mainAlpha"
         >
           <BsArrowUpShort size={24} /> top

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { inlineFn } from "../../../../helpers";
 type Props = {
   images: string[];
   title: string;
@@ -28,7 +29,7 @@ export const ImagesContainer = ({ images, title }: Props) => {
                 ? "outline outline-2 outline-primary-main"
                 : ""
             }`}
-            onClick={() => setActiveImg(index)}
+            onClick={inlineFn(setActiveImg, index)}
           >
             <Image
               src={img}

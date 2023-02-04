@@ -1,17 +1,20 @@
 import { useSession, signOut } from "next-auth/react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavItem } from "../nav-item/nav-item";
 import { Context } from "../../../../../../../main/providers/context-provider";
 import Image from "next/image";
+import { inlineFn } from "../../../../../../helpers";
 
 export const LoginLogout = () => {
   const { data: session } = useSession();
-  const { toggleLoginDialogOpen, isLoginDialogOpen } = useContext(Context);
+  const { toggleLoginDialogOpen } = useContext(Context);
   const [isDropDownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropDown = () => setIsDropdownOpen((prev) => !prev);
 
   if (!session)
     return (
-      <NavItem href="/" action={() => toggleLoginDialogOpen(true)}>
+      <NavItem href="/" action={inlineFn(toggleLoginDialogOpen, true)}>
         Login
       </NavItem>
     );
@@ -20,7 +23,7 @@ export const LoginLogout = () => {
   const useName = session.user?.name?.split(" ")[0] ?? "";
   return (
     <div className="relative">
-      <NavItem href="/" action={() => setIsDropdownOpen((prev) => !prev)}>
+      <NavItem href="/" action={toggleDropDown}>
         <div className="flex items-center">
           <Image
             alt="profile picture"

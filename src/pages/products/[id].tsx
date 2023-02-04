@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   if (process.env.SKIP_BUILD_STATIC_GENERATION) {
     return {
       paths: [],
-      fallback: "blocking",
+      fallback: true,
     };
   }
   const queryClient = new QueryClient();

@@ -2,6 +2,7 @@ import React from "react";
 import { ProductModel } from "../../../../../domain/models";
 import { formatUSDPrice } from "../../../../../helpers/format-currency";
 import { AddAndRemoveBtns, RatingStars } from "../../../../components";
+import { inlineFn } from "../../../../helpers";
 import { useCartSelector } from "../../../../hooks";
 import { ImagesContainer } from "../images-container/images-container";
 
@@ -30,9 +31,14 @@ export const ProductInfo = ({
         <p className="mt-2">{formatUSDPrice(price)}</p>
         <div className="mt-4">
           <AddAndRemoveBtns
-            addFn={() => increaseItemAmount({ id, title, price, thumbnail })}
+            addFn={inlineFn(increaseItemAmount, {
+              id,
+              title,
+              price,
+              thumbnail,
+            })}
             value={itemAmount()}
-            removeFn={() => reduceItemAmount(id)}
+            removeFn={inlineFn(reduceItemAmount, id)}
           />
         </div>
         <div className="mt-4">
