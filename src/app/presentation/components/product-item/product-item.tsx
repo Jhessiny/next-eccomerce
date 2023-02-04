@@ -35,11 +35,14 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
     return (
       // <Link
       //   href={`/products/${id}`}
-      //   key={title}
       //   className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
       //   ref={ref}
       // >
-      <a href={`/products/${id}`} ref={ref}>
+      <a
+        href={`/products/${id}`}
+        className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
+        ref={ref}
+      >
         <Image
           src={images[0]}
           alt={title}
