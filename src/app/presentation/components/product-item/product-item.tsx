@@ -45,6 +45,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
           width={200}
           height={170}
           className="object-contain h-52 w-full mb-4"
+          onError={(e) => (e.currentTarget.src = "/assets/fall-back-image.png")}
         />
         <p className="text-2xl font-bold">{title}</p>
         <p>{formatUSDPrice(price)}</p>

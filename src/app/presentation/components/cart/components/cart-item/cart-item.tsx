@@ -34,6 +34,7 @@ export const CartItemComponent = ({
         width={100}
         height={100}
         className="object-contain h-20"
+        onError={(e) => (e.currentTarget.src = "/assets/fall-back-image.png")}
       />
       <h3>{title}</h3>
       <p>{formatUSDPrice(price)}</p>

@@ -18,6 +18,7 @@ export const ImagesContainer = ({ images, title }: Props) => {
           width={450}
           height={256}
           className="object-contain h-64"
+          onError={(e) => (e.currentTarget.src = "/assets/fall-back-image.png")}
         />
       </div>
       <div className="flex gap-1 min-[850px]:gap-x-2 min-[850px]:gap-y-4 mt-2">
@@ -37,6 +38,9 @@ export const ImagesContainer = ({ images, title }: Props) => {
               width={112}
               height={96}
               className="object-contain h-full"
+              onError={(e) =>
+                (e.currentTarget.src = "/assets/fall-back-image.png")
+              }
             />
           </div>
         ))}
