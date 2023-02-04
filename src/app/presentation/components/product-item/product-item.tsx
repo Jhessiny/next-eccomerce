@@ -35,10 +35,10 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
     return (
       // <Link
       //   href={`/products/${id}`}
-      //   className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
+      //   className="w-full px-2 py-4 bg-white rounded-md shadow-md text-center duration-300 hover:scale-105 flex flex-col justify-between"
       //   ref={ref}
       // >
-      <a
+      <Link
         href={`/products/${id}`}
         className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
         ref={ref}
@@ -62,7 +62,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
             remove from cart
           </Button>
         )}
-      </a>
+      </Link>
 
       // </Link>
     );
