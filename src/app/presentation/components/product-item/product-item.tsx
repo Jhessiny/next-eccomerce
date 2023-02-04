@@ -39,7 +39,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
       //   className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
       //   ref={ref}
       // >
-      <>
+      <div>
         <Image
           src={images[0]}
           alt={title}
@@ -59,7 +59,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
             remove from cart
           </Button>
         )}
-      </>
+      </div>
 
       // </Link>
     );
