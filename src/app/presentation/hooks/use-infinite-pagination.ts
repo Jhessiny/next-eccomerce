@@ -20,13 +20,13 @@ export const useProductsInfinitePagination = ({ filter }: Props) => {
 
   useEffect(() => {
     if (hasMore) refetch();
-  }, [page]);
+  }, [page, refetch, hasMore]);
 
   useEffect(() => {
     setProducts([]);
     setPage(1);
     refetch();
-  }, [filter]);
+  }, [filter, refetch]);
 
   useEffect(() => {
     if (data?.products) setProducts((prev) => [...prev, ...data.products]);
