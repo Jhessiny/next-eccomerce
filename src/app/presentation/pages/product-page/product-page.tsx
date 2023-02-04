@@ -11,6 +11,8 @@ export const ProductPage = () => {
   const id = route.query.id as string;
   const { isLoading, data } = useLoadProductItem(id);
 
+  const showSpinner = route.isFallback ?? isLoading;
+
   return (
     <>
       <Head>
@@ -18,7 +20,7 @@ export const ProductPage = () => {
         <meta name="description" content={data?.title} />
       </Head>
 
-      {isLoading && <Spinner />}
+      {showSpinner && <Spinner />}
       {data && (
         <>
           <div className="max-w-384 min-[850px]:h-[32rem] mx-auto  bg-white rounded-sm shadow-md py-2 px-4">
