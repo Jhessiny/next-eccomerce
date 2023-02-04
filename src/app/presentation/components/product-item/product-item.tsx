@@ -19,7 +19,7 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
         stopPropagation(e);
         increaseItemAmount({ id, title, price, thumbnail });
       },
-      [increaseItemAmount, id]
+      [increaseItemAmount, id, price, thumbnail, title]
     );
 
     const handleRemoveItem = useCallback(
@@ -33,12 +33,13 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
     const cartHasItem = Boolean(getCartItem(id));
 
     return (
-      <Link
-        href={`/products/${id}`}
-        key={title}
-        className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
-        ref={ref}
-      >
+      // <Link
+      //   href={`/products/${id}`}
+      //   key={title}
+      //   className="w-full px-2 py-4 bg-white rounded-md shadow-md	text-center duration-300 hover:scale-105 flex flex-col justify-between"
+      //   ref={ref}
+      // >
+      <>
         <Image
           src={images[0]}
           alt={title}
@@ -58,7 +59,9 @@ export const ProductItem = React.forwardRef<HTMLAnchorElement, Props>(
             remove from cart
           </Button>
         )}
-      </Link>
+      </>
+
+      // </Link>
     );
   }
 );
