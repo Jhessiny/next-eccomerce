@@ -10,7 +10,7 @@ export const BackButton = () => {
       className="flex items-center justify-center px-3 py-2 text-primary-main mb-2"
     >
       <BsArrowLeft className="mr-2 " />
-      voltar
+      back
     </button>
   );
 };
