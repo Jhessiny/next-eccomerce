@@ -13,7 +13,10 @@ export const Cart = () => {
   const { isCartOpen, setIsCartOpen, startCart } = useCartSelector();
   const cache = useCacheStorage();
 
-  const navigateToCheckout = () => router.push("/checkout");
+  const navigateToCheckout = () => {
+    setIsCartOpen(false);
+    router.push("/checkout");
+  };
 
   useEffect(() => {
     const cacheCartItems = cache.getItem("cart");
@@ -49,7 +52,12 @@ export const Cart = () => {
         </button>
         <div className="overflow-y-scroll h-full">
           <CartItemsList
-            btn={{ action: navigateToCheckout, text: "checkout" }}
+            btn={{
+              action: navigateToCheckout,
+              text: "checkout",
+              fullWidth: true,
+            }}
+            isSideCart
           />
         </div>
       </motion.div>
