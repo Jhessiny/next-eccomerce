@@ -1,4 +1,4 @@
-import { AxiosHttpClient } from "../../../infra/protocols/http/protocols";
+import { AxiosHttpClient } from "@/app/infra/protocols/http/protocols";
 import { LoadProducts } from "./load-products";
 
 export const loadProductsService = new LoadProducts(

@@ -1,5 +1,5 @@
-import { ProductModel } from "../../../domain/models";
-import { HttpClient } from "../../protocols";
+import { ProductModel } from "@/app/domain/models";
+import { HttpClient } from "@/app/application/protocols";
 
 export class LoadProductItem {
   constructor(

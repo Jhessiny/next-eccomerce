@@ -1,10 +1,9 @@
-import { useRouter } from "next/router";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { formatUSDPrice } from "../../../../../helpers/format-currency";
-import { useCartSelector } from "../../../../hooks";
-import { Button } from "../../../button/button";
-import { CartItemComponent } from "../cart-item/cart-item";
+import { formatUSDPrice } from "@/app/helpers/format-currency";
+import { useCartSelector } from "@/app/presentation/hooks";
+import { Button } from "@/app/presentation/components";
+import { CartItemComponent } from "./components";
 
 type Props = {
   isSideCart?: boolean;

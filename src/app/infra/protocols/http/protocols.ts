@@ -3,7 +3,7 @@ import {
   HttpClient,
   HttpRequest,
   HttpResponse,
-} from "../../../application/protocols/http/http-client";
+} from "@/app/application/protocols/http/http-client";
 
 const baseURL = "https://dummyjson.com";
 

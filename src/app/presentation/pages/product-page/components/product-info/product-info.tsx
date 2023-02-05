@@ -1,10 +1,10 @@
 import React from "react";
-import { ProductModel } from "../../../../../domain/models";
-import { formatUSDPrice } from "../../../../../helpers/format-currency";
-import { AddAndRemoveBtns, RatingStars } from "../../../../components";
-import { inlineFn } from "../../../../helpers";
-import { useCartSelector } from "../../../../hooks";
-import { ImagesContainer } from "../images-container/images-container";
+import { ProductModel } from "@/app/domain/models";
+import { formatUSDPrice } from "@/app/helpers";
+import { AddAndRemoveBtns, RatingStars } from "@/app/presentation/components";
+import { inlineFn } from "@/app/presentation/helpers";
+import { useCartSelector } from "@/app/presentation/hooks";
+import { ImagesContainer } from "../";
 
 type Props = ProductModel;
 

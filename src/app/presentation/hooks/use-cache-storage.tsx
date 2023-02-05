@@ -1,14 +1,26 @@
-import { useContext } from "react";
-import { Context } from "../../main/providers/context-provider";
+import { useCallback, useContext, useMemo } from "react";
+import { Context } from "@/app/main/providers";
 
 export const useCacheStorage = () => {
   const { cache } = useContext(Context);
-  const getItem = (name: string) => {
-    return cache.getItem(name);
-  };
+  const getItem = useCallback(
+    (name: string) => {
+      return cache.getItem(name);
+    },
+    [cache]
+  );
 
-  const setItem = (name: string, value: string) => {
-    return cache.setItem(name, value);
-  };
-  return { getItem, setItem };
+  const setItem = useCallback(
+    (name: string, value: string) => {
+      return cache.setItem(name, value);
+    },
+    [cache]
+  );
+  return useMemo(
+    () => ({
+      getItem,
+      setItem,
+    }),
+    [getItem, setItem]
+  );
 };

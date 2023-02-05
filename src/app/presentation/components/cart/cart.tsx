@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import { useCartSelector } from "../../hooks";
+import { useCartSelector } from "@/app/presentation/hooks";
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
-import { CartItemsList } from "./components";
-import { useCacheStorage } from "../../hooks/use-cache-storage";
-import { Overlay } from "../overlay/overlay";
-import { Portal } from "../portal/portal";
+import { CartItemsList, Overlay, Portal } from "@/app/presentation/components";
+import { useCacheStorage } from "@/app/presentation/hooks/use-cache-storage";
 import { useRouter } from "next/router";
 
 export const Cart = () => {
@@ -21,7 +19,8 @@ export const Cart = () => {
   useEffect(() => {
     const cacheCartItems = cache.getItem("cart");
     if (cacheCartItems) startCart(JSON.parse(cacheCartItems));
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cache]);
 
   useEffect(() => {
     if (isCartOpen) {

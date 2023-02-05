@@ -1,8 +1,7 @@
 import { useSession, signIn } from "next-auth/react";
 import React, { useContext } from "react";
-import { Context } from "../../../main/providers/context-provider";
-import { Button } from "../button/button";
-import { Dialog } from "../dialog/dialog";
+import { Context } from "@/app/main/providers/context-provider";
+import { Button, Dialog } from "@/app/presentation/components";
 
 export const LoginDialog = () => {
   const { data: session } = useSession();

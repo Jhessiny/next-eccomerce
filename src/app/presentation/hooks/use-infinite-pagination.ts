@@ -1,4 +1,4 @@
-import { ProductModel } from "./../../domain/models/products";
+import { ProductModel } from "@/app/domain/models/products";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLoadProducts } from "./queries/use-products";
 import { useMount } from "./use-mount";

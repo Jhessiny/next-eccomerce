@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductItem } from "../../../../components";
-import { useLoadProducts } from "../../../../hooks/queries/use-products";
+import { ProductItem } from "@/app/presentation/components";
+import { useLoadProducts } from "@/app/presentation/hooks/queries/use-products";
 
 type Props = {
   category: string;

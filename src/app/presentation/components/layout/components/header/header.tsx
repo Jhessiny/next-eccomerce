@@ -1,8 +1,7 @@
 import React from "react";
-import { NavItem } from "./components/nav-item/nav-item";
+import { NavItem, LoginLogout } from "./components";
 import { RiShoppingCartLine } from "react-icons/ri";
-import { useCartSelector, useRouteMatch } from "../../../../hooks";
-import { LoginLogout } from "./components/login-logout/login-logout";
+import { useCartSelector, useRouteMatch } from "@/app/presentation/hooks";
 
 export const Header = () => {
   const isCheckoutRoute = useRouteMatch("checkout");

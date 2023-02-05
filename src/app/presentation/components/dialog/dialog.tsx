@@ -1,7 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { Card } from "../card/card";
-import { Overlay } from "../overlay/overlay";
-import { Portal } from "../portal/portal";
+import { Card, Overlay, Portal } from "@/app/presentation/components";
 import { IoMdClose } from "react-icons/io";
 
 type Props = PropsWithChildren & {

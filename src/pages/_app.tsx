@@ -1,9 +1,9 @@
 import type { AppProps } from "next/app";
 import { Hydrate } from "react-query";
-import { ReactQueryProvider } from "../app/main/providers";
-import "../../styles/globals.css";
-import { Layout } from "../app/presentation/components";
-import { ContextProvider } from "../app/main/providers/context-provider";
+import { ReactQueryProvider } from "@/app/main/providers";
+import "@/pages/styles/globals.css";
+import { Layout } from "@/app/presentation/components";
+import { ContextProvider } from "@/app/main/providers/context-provider";
 import { SessionProvider } from "next-auth/react";
 
 export default function App({

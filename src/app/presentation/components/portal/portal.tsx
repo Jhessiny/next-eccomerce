@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useMount } from "../../hooks";
+import { useMount } from "@/app/presentation/hooks";
 
 export const Portal = ({ children }: PropsWithChildren) => {
   const portalRef = useRef<Element | null>(null);

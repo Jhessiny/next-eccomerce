@@ -1,7 +1,9 @@
-import { LoadProducts } from "./../../../application/services/load-products/load-products";
+import { LoadProducts } from "@/app/application/services/load-products/load-products";
 import { useQuery } from "react-query";
-import { loadProductItemService } from "../../../application/services/load-product-item";
-import { loadProductsService } from "../../../application/services/load-products";
+import {
+  loadProductItemService,
+  loadProductsService,
+} from "@/app/application/services";
 
 export const useLoadProducts = (
   params?: LoadProducts.Params,

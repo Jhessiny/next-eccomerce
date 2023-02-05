@@ -9,3 +9,6 @@ export * from "./cart/cart";
 export * from "./overlay/overlay";
 export * from "./login-dialog/login-dialog";
 export * from "./card/card";
+export * from "./cart-items-list/cart-items-list";
+export * from "./portal/portal";
+export * from "./dialog/dialog";

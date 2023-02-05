@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient } from "react-query";
-import { loadProductItemService } from "../../app/application/services/load-product-item";
-import { loadProductsService } from "../../app/application/services/load-products";
-import { ProductPage } from "../../app/presentation/pages/product-page/product-page";
+import { loadProductItemService } from "@/app/application/services/load-product-item";
+import { loadProductsService } from "@/app/application/services/load-products";
+import { ProductPage } from "@/app/presentation/pages/product-page/product-page";
 
 export async function getStaticPaths() {
   if (process.env.SKIP_BUILD_STATIC_GENERATION) {

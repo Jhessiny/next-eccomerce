@@ -1,7 +1,7 @@
-import { error, success } from "./../../../domain/common/utils/either";
-import { HttpResponse, HttpStatusCode } from "../../protocols";
-import { Response } from "../../../domain/common/types/response";
-import { UnexpectedError } from "../../../domain/exceptions";
+import { error, success } from "@/app/domain/common/utils/either";
+import { HttpResponse, HttpStatusCode } from "@/app/application/protocols";
+import { Response } from "@/app/domain/common/types/response";
+import { UnexpectedError } from "@/app/domain/exceptions";
 
 export class RequestResponse<R> {
   private constructor(private readonly _response: R | undefined) {

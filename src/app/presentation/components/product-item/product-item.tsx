@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback } from "react";
-import { ProductModel } from "../../../domain/models";
-import { formatUSDPrice } from "../../../helpers/format-currency";
+import { ProductModel } from "@/app/domain/models";
+import { formatUSDPrice } from "@/app/helpers/format-currency";
 import { Button } from "..";
-import { useCartSelector } from "../../hooks";
-import { stopPropagation } from "../../helpers";
+import { useCartSelector } from "@/app/presentation/hooks";
+import { stopPropagation } from "@/app/presentation/helpers";
 
 type Props = ProductModel;
 

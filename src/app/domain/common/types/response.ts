@@ -1,5 +1,5 @@
-import { UnexpectedError } from "../../exceptions";
-import { Either } from "../utils/either";
+import { UnexpectedError } from "@/app/domain/exceptions";
+import { Either } from "@/app/domain/common/utils/either";
 
 export type ResponseError = UnexpectedError;
 

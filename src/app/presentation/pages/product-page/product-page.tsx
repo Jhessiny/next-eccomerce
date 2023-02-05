@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import React from "react";
-import { useLoadProductItem } from "../../hooks/queries/use-products";
-import { BackButton, Spinner } from "../../components";
+import { useLoadProductItem } from "@/app/presentation/hooks/queries/use-products";
+import { BackButton, Spinner } from "@/app/presentation/components";
 import { ProductInfo, Recommendations } from "./components";
 
 export const ProductPage = () => {

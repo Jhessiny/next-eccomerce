@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
-import { Spinner, Button } from "../../components";
-import { inlineFn } from "../../helpers";
-import { useProductsInfinitePagination } from "../../hooks/use-infinite-pagination";
+import { Spinner, Button } from "@/app/presentation/components";
+import { inlineFn } from "@/app/presentation/helpers";
+import { useProductsInfinitePagination } from "@/app/presentation/hooks";
 import { CategoryFilter, ProductsList } from "./components";
 
 export const Products = () => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CacheStorage } from "../../../application/protocols";
+import { CacheStorage } from "@/app/application/protocols";
 
 export class LocalStorage implements CacheStorage {
   getItem(name: string) {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { inlineFn } from "../../../../helpers";
+import { inlineFn } from "@/app/presentation/helpers";
 type Props = {
   images: string[];
   title: string;

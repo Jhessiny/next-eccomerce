@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductModel } from "../../../../../domain/models";
-import { ProductItem } from "../../../../components";
+import { ProductModel } from "@/app/domain/models";
+import { ProductItem } from "@/app/presentation/components";
 
 type Props = {
   products: ProductModel[];

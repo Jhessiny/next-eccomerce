@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require("path");
+
 const { withSuperjson } = require("next-superjson");
 const nextConfig = {
   reactStrictMode: true,
@@ -32,4 +34,16 @@ const nextConfig = {
   },
 };
 
-module.exports = withSuperjson()(nextConfig);
+const fullConfig = {
+  ...nextConfig,
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname),
+      "@/src": path.resolve(__dirname, "src"),
+    };
+    return config;
+  },
+};
+
+module.exports = withSuperjson()(fullConfig);

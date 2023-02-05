@@ -1,9 +1,9 @@
 import { useSession, signOut } from "next-auth/react";
 import React, { useContext, useState } from "react";
-import { NavItem } from "../nav-item/nav-item";
-import { Context } from "../../../../../../../main/providers/context-provider";
+import { NavItem } from "../";
+import { Context } from "@/app/main/providers/context-provider";
 import Image from "next/image";
-import { inlineFn } from "../../../../../../helpers";
+import { inlineFn } from "@/app/presentation/helpers";
 
 export const LoginLogout = () => {
   const { data: session } = useSession();

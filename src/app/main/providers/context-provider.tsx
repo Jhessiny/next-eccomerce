@@ -1,6 +1,6 @@
 import { PropsWithChildren, useState } from "react";
 import React from "react";
-import { LocalStorage } from "../../infra/protocols/cache/local-storage";
+import { LocalStorage } from "@/app/infra/protocols/cache/local-storage";
 
 const initialContext = {
   cache: new LocalStorage(),

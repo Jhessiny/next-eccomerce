@@ -1,8 +1,7 @@
 import Head from "next/head";
-import React, { PropsWithChildren, useContext, useState } from "react";
-import { Context } from "../../../main/providers/context-provider";
-import { Cart } from "../cart/cart";
-import { LoginDialog } from "../login-dialog/login-dialog";
+import React, { PropsWithChildren, useContext } from "react";
+import { Context } from "@/app/main/providers/context-provider";
+import { Cart, LoginDialog } from "@/app/presentation/components";
 import { Header } from "./components/header/header";
 
 type Props = PropsWithChildren;

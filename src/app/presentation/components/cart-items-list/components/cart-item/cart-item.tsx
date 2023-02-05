@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React, { useCallback } from "react";
-import { CartItemModel } from "../../../../../../store";
-import { formatUSDPrice } from "../../../../../helpers";
-import { useCartSelector } from "../../../../hooks";
-import { AddAndRemoveBtns } from "../../../add-and-remove-btns/add-and-remove-btns";
+import { CartItemModel } from "@/store";
+import { formatUSDPrice } from "@/app/helpers";
+import { inlineFn } from "@/app/presentation/helpers";
+import { useCartSelector } from "@/app/presentation/hooks";
+import { AddAndRemoveBtns } from "@/app/presentation/components";
 import { BiTrashAlt } from "react-icons/bi";
-import { inlineFn } from "../../../../helpers";
 import { twMerge } from "tailwind-merge";
 
 type Props = CartItemModel & {
