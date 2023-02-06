@@ -8,4 +8,8 @@ export class LocalStorage implements CacheStorage {
   setItem(name: string, value: string) {
     return localStorage.setItem(name, value);
   }
+
+  removeItem(name: string) {
+    return localStorage.removeItem(name);
+  }
 }

@@ -3,5 +3,5 @@ import { LoadProducts } from "./load-products";
 
 export const loadProductsService = new LoadProducts(
   "/products",
-  new AxiosHttpClient()
+  new AxiosHttpClient("products")
 );
