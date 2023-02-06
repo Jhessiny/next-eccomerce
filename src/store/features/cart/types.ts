@@ -1,4 +1,4 @@
-import { ProductModel } from "../../../app/domain/models";
+import { ProductModel } from "@/app/domain/models";
 
 export type PartialProductType = Pick<
   ProductModel,
@@ -15,4 +15,5 @@ export type CartStore = {
   increaseItemAmount: (product: PartialProductType) => void;
   reduceItemAmount: (id: string) => void;
   removeCartItem: (id: string) => void;
+  clearCart: () => void;
 };

@@ -30,6 +30,11 @@ export const useCartStore = create<CartStore>((set) => ({
       ...state,
       cart: removeItemFromCart(id, state.cart),
     })),
+  clearCart: () =>
+    set((state) => ({
+      ...state,
+      cart: [],
+    })),
 }));
 
 const addItemToCart = (product: PartialProductType, cart: CartItemModel[]) => {
