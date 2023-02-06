@@ -16,11 +16,19 @@ export const useCacheStorage = () => {
     },
     [cache]
   );
+
+  const removeItem = useCallback(
+    (name: string) => {
+      return cache.removeItem(name);
+    },
+    [cache]
+  );
   return useMemo(
     () => ({
       getItem,
       setItem,
+      removeItem,
     }),
-    [getItem, setItem]
+    [getItem, setItem, removeItem]
   );
 };

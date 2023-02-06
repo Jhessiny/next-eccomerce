@@ -22,6 +22,7 @@ export const useCartSelector = () => {
     if (isFirstRender) return;
     const items = store.cart;
     if (store.cart.length) cache.setItem("cart", JSON.stringify(items));
+    else cache.removeItem("cart");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartAmount, isFirstRender, store.cart]);
 
